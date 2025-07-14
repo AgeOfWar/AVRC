@@ -46,11 +46,27 @@
 {#if hoveredGame}
 	<Tooltip game={hoveredGame} --left={hoveredGame.x + 10 + 'px'} --top={hoveredGame.y + 10 + 'px'} />
 {/if}
+<div class="scroll-area"></div>
 
 <style>
 	.search-container {
 		position: absolute;
 		top: 10px;
 		left: 10px;
+	}
+
+	.scroll-area {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 50px;
+		background-color: gray;
+	}
+
+	@media (min-width: 900px) {
+		.scroll-area {
+			display: none;
+		}
 	}
 </style>

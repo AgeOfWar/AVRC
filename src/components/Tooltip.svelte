@@ -73,7 +73,30 @@
 		left: var(--left);
 		transform: translate(10px, 10px);
 		z-index: 1000;
-		max-width: 400px;
+		max-width: min(400px, 90vw);
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	@media (max-width: 768px) {
+		.tooltip {
+			box-sizing: border-box;
+			left: 0 !important;
+			bottom: 0;
+			top: auto !important;
+			width: 100dvw;
+			max-width: 100dvw;
+			border-radius: 16px 16px 0 0;
+			padding: 16px;
+			font-size: 17px;
+			line-height: 1.5;
+			box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.18);
+			transform: none;
+			pointer-events: auto;
+			overflow-y: auto;
+			max-height: 60vh;
+			align-items: flex-start;
+		}
 	}
 
 	.thumb {

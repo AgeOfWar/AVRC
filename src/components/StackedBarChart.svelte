@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { mechanicColors, type BoardGame } from '$lib';
 	import D3 from './D3.svelte';
-	import Tooltip from './Tooltip.svelte'; // assicurati di averlo o crealo
+	import Tooltip from './Tooltip.svelte';
 	import { select, scaleBand, scaleLinear, axisBottom, axisLeft, max } from 'd3';
 
 	export let games: BoardGame[];
@@ -13,8 +13,14 @@
 
 	async function setup(container: HTMLElement) {
 		const margin = { top: 40, right: 200, bottom: 50, left: 60 };
-		const width = window.innerWidth * 0.75 - margin.left - margin.right;
-		const height = window.innerHeight * 0.75 - margin.top - margin.bottom;
+		const width =
+			(window.innerWidth < window.innerHeight ? window.innerHeight : window.innerWidth) * 0.75 -
+			margin.left -
+			margin.right;
+		const height =
+			(window.innerWidth < window.innerHeight ? window.innerHeight : window.innerWidth) * 0.75 -
+			margin.top -
+			margin.bottom;
 
 		const svg = select(container)
 			.append('svg')
