@@ -14,7 +14,7 @@
 	async function setup(container: HTMLElement) {
 		const margin = { top: 40, right: 200, bottom: 50, left: 60 };
 		const width = window.innerWidth * 0.75 - margin.left - margin.right;
-		const height = window.innerWidth * 0.75 - margin.top - margin.bottom;
+		const height = window.innerHeight * 0.75 - margin.top - margin.bottom;
 
 		const svg = select(container)
 			.append('svg')
