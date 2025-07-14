@@ -37,6 +37,10 @@ for i, j in zip(rows, cols):
     if i < j:
         G.add_edge(ids[i], ids[j], weight=cos_sim[i, j])
 
+for game in games_df["BGGId"]:
+    if game not in G:
+        G.add_node(game)
+
 id_to_name = dict(zip(games_df["BGGId"], games_df["Name"]))
 
 strengths = {node: sum(d['weight'] for _, _, d in G.edges(node, data=True)) for node in G.nodes}
